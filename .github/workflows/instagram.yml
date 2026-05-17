@@ -1,0 +1,31 @@
+name: Auto Instagram Video Post
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+    - cron: "0 9 * * *"
+    - cron: "0 15 * * *"
+  workflow_dispatch:
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run poster
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          REPO_RAW_BASE: https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main
+        run: python post_from_github_video.py
