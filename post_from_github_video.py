@@ -4,8 +4,9 @@ import glob
 import time
 
 ACCESS_TOKEN = os.getenv("IG_ACCESS_TOKEN")
+print("TOKEN:", ACCESS_TOKEN)
 IG_USER_ID = os.getenv("IG_USER_ID")
-REPO_RAW_BASE = os.getenv("REPO_RAW_BASE")  # important
+print("USER ID:", IG_USER_ID)
 
 def get_latest_video():
     videos = glob.glob("videos/*.mp4")
@@ -68,7 +69,7 @@ if __name__ == "__main__":
 
     filename = os.path.basename(local_file)
 
-    video_url = f"{REPO_RAW_BASE}/videos/{filename}"
+    video_url = "https://raw.githubusercontent.com/jeraldkingn/ipostviralvideo/main/videos/video1.mp4"
     print("Using:", video_url)
 
     container = create_container(video_url)
