@@ -22,9 +22,10 @@ def create_container(video_url):
     url = f"https://graph.facebook.com/v19.0/{IG_USER_ID}/media"
 
     payload = {
-        "media_type": "VIDEO",
+        "media_type": "REELS",
         "video_url": video_url,
-        "caption": "Auto posted video 🚀",
+        "caption": "Yes, this is a video going to be viral! #viralvideo #funny #entertainment",
+        "share_to_feed": "true",
         "access_token": ACCESS_TOKEN
     }
 
