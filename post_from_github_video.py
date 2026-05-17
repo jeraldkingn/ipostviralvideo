@@ -17,6 +17,7 @@ def get_latest_video():
     return latest
 
 def create_container(video_url):
+    print(ACCESS_TOKEN)
     url = f"https://graph.facebook.com/v19.0/{IG_USER_ID}/media"
 
     payload = {
