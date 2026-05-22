@@ -24,11 +24,17 @@ def create_container(video_url):
     payload = {
         "media_type": "REELS",
         "video_url": video_url,
-        "caption": "Yes, this is a video going to be viral! #viralvideo #funny #entertainment",
+        "caption": (
+            "Just your friendly neighborhood reminder to pause, reset, and take a sip of water. ☁️💧\n"  # Removed the trailing space
+            "You’ve been staring at your screen for a while—give yourself a quick 5-second break to hydrate.\n"
+            "\u200b\n"  # Invisible space guarantees a clean blank paragraph line
+            "Tag someone who needs a gentle reminder to take care of themselves today! ✨\n"
+            "\u200b\n"
+            "#WaterBreak #PauseAndReset #SelfCareReminder #CatsofInstagram #HealthyHabits #MindfulMoments #CuteCats #Hydration"
+        ),
         "share_to_feed": "true",
         "access_token": ACCESS_TOKEN
     }
-
     res = requests.post(url, data=payload)
     data = res.json()
 
